@@ -25,13 +25,17 @@ void intsizes(int8_t num, int16_t num2, int32_t num3, int64_t num4) {
     printf("I have ints args: %d, %d, %d, %ld\n", num, num2, num3, num4);
 }
 void booltype(bool b) {
-    printf("I have bool: %b", b);
+    printf("I have bool: %b\n", b);
+}
+
+void alot(int64_t n1, int64_t n2, int64_t n3, int64_t n4, int64_t n5, int64_t n6, int64_t n7, int64_t n8, int64_t n9, int64_t n10) {
+    printf("Wow so many numbers:\n%ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld wow\n", n1, n2, n3, n4, n5, n6, n7, n8, n9, n10);
 }
 
 int main(int argc, char **argv) {
     Umka *umka = umkaAlloc();
 
-    bool ok = umkaInit(umka, "test.um", NULL, 4096, NULL, argc, argv, true, true, NULL);
+    bool ok = umkaInit(umka, "test.um", NULL, 4096*10, NULL, argc, argv, true, true, NULL);
     if (!ok) {
         printf("Failed to init umka :/\n");
         return 1;
