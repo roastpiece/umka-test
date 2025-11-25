@@ -1,0 +1,8 @@
+extern fn foo(num: int);
+extern fn bar(num: int, num2: int);
+
+fn main() {
+   printf("Hello from Umka\n");
+   foo(34+35);
+   bar(34,35);
+}
