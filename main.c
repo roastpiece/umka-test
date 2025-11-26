@@ -87,8 +87,6 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    MyStruct thing = gimmeStruct();
-
     int run = umkaRun(umka);
     return run;
 }
