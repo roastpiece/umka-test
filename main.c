@@ -32,6 +32,31 @@ void alot(int64_t n1, int64_t n2, int64_t n3, int64_t n4, int64_t n5, int64_t n6
     printf("Wow so many numbers:\n%ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld wow\n", n1, n2, n3, n4, n5, n6, n7, n8, n9, n10);
 }
 
+void iHasString(const char *s) {
+    printf("I have str: %s\n", s);
+}
+
+typedef struct MyStruct {
+    int64_t num;
+    double _float;
+    const char * str;
+} MyStruct;
+
+typedef struct StructWithStruct {
+    const char * str;
+    MyStruct structInStruct;
+} StructWithStruct;
+
+void withStruct(StructWithStruct my) {
+    printf("I am struct: %s\n"
+           "with a structInStruct: %s\n"
+           "\tstructInStruct.num:\t%ld\n"
+           "\tstructInStruct.float:\t%f\n"
+           "\tstructInStruct.str:\t%s\n",
+           my.str,
+           my.structInStruct.str, my.structInStruct.num, my.structInStruct._float, my.structInStruct.str);
+}
+
 int main(int argc, char **argv) {
     Umka *umka = umkaAlloc();
 
