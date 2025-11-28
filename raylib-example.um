@@ -17,7 +17,7 @@ fn main() {
     rl::SetTargetFPS(currentFps);
 
     for !rl::WindowShouldClose() {
-        rl::ClearBackground({r: 230, g: 230, b: 230, a: 255});
+        rl::ClearBackground({r: 250, g: 250, b: 250, a: 255});
 
         mouseWheel := rl::GetMouseWheelMove();
         if (mouseWheel != 0) {
@@ -38,7 +38,11 @@ fn main() {
             frameCircle.x = 0;
         }
 
+        mouseX := rl::GetMouseX();
+        mouseY := rl::GetMouseY();
+
         rl::BeginDrawing();
+            rl::DrawCircleV(rl::Vector2 {x: real32(mouseX), y: real32(mouseY)}, 4, rl::YELLOW);
 
             // Draw both circles to the screen
             rl::DrawCircleV(deltaCircle, circleRadius, rl::RED);
@@ -51,8 +55,6 @@ fn main() {
                 fpsText = sprintf("FPS: unlimited (%i)", rl::GetFPS());
             } else {
                 fpsText = sprintf("FPS: %i (target: %i)", rl::GetFPS(), currentFps);
-                monitorPos := rl::GetMonitorPosition(1);
-                fpsText = sprintf("FPS: %i (target: %i) | Monitor Pos (%02.02f, %02.02f)", rl::GetFPS(), currentFps, monitorPos.x, monitorPos.y);
             }
             rl::DrawText(fpsText, 10, 10, 20, rl::DARKGRAY);
             rl::DrawText(sprintf("Frame time: %02.02f ms", rl::GetFrameTime()), 10, 30, 20, rl::DARKGRAY);
